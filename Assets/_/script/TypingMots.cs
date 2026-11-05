@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class TypingWord : MonoBehaviour
 {
-    public TMP_Text label;                 // the text above the mic
-    public float startDelay = 3f;          // seconds after the click (lets the camera pan)
-    public string[] words = { "tomate", "mollusque", "glace", "couleur" , "bambouin" };
+    public TMP_Text label;                
+    public float startDelay = 3f;          
+    public string[] words = { "tomate", "prison", "lol", "arbitraire" , "babouin", "muettes", "obscure", "creux", "enflammé", "malédiction", "atmosphère", "hasard", "confortables", "marines", "intenion", "silhouette" };
 
     int index, typed;
     string current;
@@ -14,7 +14,7 @@ public class TypingWord : MonoBehaviour
 
     void Start() { label.text = ""; }
 
-    // The button calls this
+  
     public void StartGame()
     {
         if (started) return;
@@ -45,6 +45,7 @@ public class TypingWord : MonoBehaviour
             {
                 mistake = true;
                 Refresh();
+
             }
         }
     }
