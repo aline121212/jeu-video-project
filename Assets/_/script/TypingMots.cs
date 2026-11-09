@@ -3,18 +3,21 @@ using UnityEngine;
 
 public class TypingWord : MonoBehaviour
 {
-    public TMP_Text label;                
-    public float startDelay = 3f;          
-    public string[] words = { "tomate", "prison", "lol", "arbitraire" , "babouin", "muettes", "obscure", "creux", "enflammé", "malédiction", "atmosphère", "hasard", "confortables", "marines", "intenion", "silhouette" };
+    public TMP_Text label;
+    public float startDelay = 3f;
+    public string[] words = { "tomate", "prison", "lol", "arbitraire", "babouin", "muettes", "obscure", "creux", "enflammé", "malédiction", "atmosphère", "hasard", "confortables", "marines", "intenion", "silhouette" };
+    public AudioSource speaker;
+    public AudioClip[] wordSounds;
+    public AudioClip mistakeSound;
+    public AudioClip completeSound;
 
-    int index, typed;
+    int index;
     string current;
+    string input = "";  
     bool started;
-    bool mistake;
 
     void Start() { label.text = ""; }
 
-  
     public void StartGame()
     {
         if (started) return;
@@ -28,52 +31,66 @@ public class TypingWord : MonoBehaviour
 
         foreach (char c in Input.inputString)
         {
-            if (char.ToLower(c) == current[typed])
+           
+            if (c == '\b')
             {
-                typed++;
-                mistake = false;
-                Refresh();
-
-                if (typed >= current.Length)
+                if (input.Length > 0)
                 {
-                    current = null;
-                    Invoke(nameof(NextWord), 0.7f);
-                    return;
+                    input = input.Substring(0, input.Length - 1);
+                    Refresh();
                 }
+                continue;
             }
-            else
-            {
-                mistake = true;
-                Refresh();
 
+            if (!char.IsLetter(c)) continue;              
+            if (input.Length >= current.Length) continue;  
+
+            char lower = char.ToLower(c);
+
+            if (lower != current[input.Length] && speaker != null && mistakeSound != null)
+                speaker.PlayOneShot(mistakeSound);
+
+            input += lower;
+            Refresh();
+
+            
+            if (input == current)
+            {
+                if (speaker != null && completeSound != null)
+                    speaker.PlayOneShot(completeSound);
+
+                current = null;
+                Invoke(nameof(NextWord), 0.7f);
+                return;
             }
         }
     }
 
     void NextWord()
     {
-        current = words[index % words.Length];
+        int i = index % words.Length;
+        current = words[i].Trim().ToLower();
         index++;
-        typed = 0;
+        input = "";
         Refresh();
+
+        if (speaker != null && i < wordSounds.Length && wordSounds[i] != null)
+            speaker.PlayOneShot(wordSounds[i]);
     }
 
     void Refresh()
     {
-        string correct = "<color=#0EC21D>"
-                       + current.Substring(0, typed)
-                       + "</color>";
-
-        string remaining = current.Substring(typed);
-
-        if (mistake && typed < current.Length)
+        string text = "";
+       
+        for (int i = 0; i < input.Length; i++)
         {
-            remaining = "<color=red>"
-                      + remaining.Substring(0, 1)
-                      + "</color>"
-                      + remaining.Substring(1);
+            string color = input[i] == current[i] ? "#0EC21D" : "red";
+            text += "<color=" + color + ">" + input[i] + "</color>";
         }
 
-        label.text = correct + remaining;
+        
+        text += "<color=#8d98a8>|</color>" + current.Substring(input.Length);
+
+        label.text = text;
     }
 }
