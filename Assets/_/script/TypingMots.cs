@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class TypingWord : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class TypingWord : MonoBehaviour
     public AudioClip[] wordSounds;
     public AudioClip mistakeSound;
     public AudioClip completeSound;
+    public string nextScene = "niveau2";
+    public bool autoStart;
     public UnityEvent onWrong;
     public UnityEvent onRight;
     public TMP_Text counterText;
@@ -29,6 +32,7 @@ public class TypingWord : MonoBehaviour
     {
         label.text = "";
         if (counterText != null) counterText.text = "0";
+        if (autoStart) StartGame();
     }
 
     public void StartGame()
@@ -66,7 +70,13 @@ public class TypingWord : MonoBehaviour
                     speaker.PlayOneShot(mistakeSound);
                 onWrong.Invoke();
                 score--;
+
+                wordsRight = 0;
+                tomatoes = 0;
+                if (tomatoText != null) tomatoText.text = "0";
+                if (tomatoAnimator != null) tomatoAnimator.SetTrigger("pop");
             }
+
             else
             {
                 score++;
@@ -80,7 +90,7 @@ public class TypingWord : MonoBehaviour
             if (input == current)
             {
                 wordsRight++;
-                if (wordsRight % 5 == 0)
+                if (wordsRight >= 5)
                 {
                     tomatoes++;
                     if (tomatoText != null) tomatoText.text = tomatoes.ToString();
@@ -107,7 +117,12 @@ public class TypingWord : MonoBehaviour
 
     void NextWord()
     {
-        int i = index % words.Length;
+        if (index >= words.Length)
+        {
+            if (!string.IsNullOrEmpty(nextScene)) SceneManager.LoadScene(nextScene);
+            return;
+        }
+        int i = index;
         current = words[i].Trim().ToLower();
         index++;
         input = "";
