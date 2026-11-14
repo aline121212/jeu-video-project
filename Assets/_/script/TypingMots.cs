@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TypingWord : MonoBehaviour
 {
@@ -10,13 +11,25 @@ public class TypingWord : MonoBehaviour
     public AudioClip[] wordSounds;
     public AudioClip mistakeSound;
     public AudioClip completeSound;
+    public UnityEvent onWrong;
+    public UnityEvent onRight;
+    public TMP_Text counterText;
+    public Animator counterAnimator;
+    int score;
+    public TMP_Text tomatoText;
+    public Animator tomatoAnimator;
+    int wordsRight, tomatoes;
 
     int index;
     string current;
     string input = "";  
     bool started;
 
-    void Start() { label.text = ""; }
+    void Start()
+    {
+        label.text = "";
+        if (counterText != null) counterText.text = "0";
+    }
 
     public void StartGame()
     {
@@ -47,15 +60,34 @@ public class TypingWord : MonoBehaviour
 
             char lower = char.ToLower(c);
 
-            if (lower != current[input.Length] && speaker != null && mistakeSound != null)
-                speaker.PlayOneShot(mistakeSound);
+            if (lower != current[input.Length])
+            {
+                if (speaker != null && mistakeSound != null)
+                    speaker.PlayOneShot(mistakeSound);
+                onWrong.Invoke();
+                score--;
+            }
+            else
+            {
+                score++;
+            }
+            ShowScore();
 
             input += lower;
             Refresh();
 
-            
+
             if (input == current)
             {
+                wordsRight++;
+                if (wordsRight % 5 == 0)
+                {
+                    tomatoes++;
+                    if (tomatoText != null) tomatoText.text = tomatoes.ToString();
+                    if (tomatoAnimator != null) tomatoAnimator.SetTrigger("pop");
+                }
+
+                onRight.Invoke();
                 if (speaker != null && completeSound != null)
                     speaker.PlayOneShot(completeSound);
 
@@ -64,6 +96,13 @@ public class TypingWord : MonoBehaviour
                 return;
             }
         }
+
+    }
+
+    void ShowScore()
+    {
+        if (counterText != null) counterText.text = score.ToString();
+        if (counterAnimator != null) counterAnimator.SetTrigger("pop");
     }
 
     void NextWord()
