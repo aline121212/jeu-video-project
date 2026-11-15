@@ -25632,47 +25632,36 @@ MonoBehaviour:
   words:
   - milliard
   - trois
-  - quincaillerie
-  - confortables
-  - biscuit
-  - hasard
-  - popotin
-  - silhouette
-  - oignon
-  - conscrit
-  - "instantan\xE9"
-  - clignotant
-  - "atmosph\xE8re"
+  - estomac
+  - moustique
+  - champignon
+  - transcription
+  - grenouille
+  - "m\xE9t\xE9orologique"
+  - chlorophylle
+  - aiguille
+  - "schizophr\xE8ne"
   - "serr\xE9e"
   - papillon
   - sculpture
-  - "rhinoc\xE9ros"
-  - "chrysanth\xE8me"
-  - "pers\xE9v\xE9rance"
-  - baguette
   speaker: {fileID: 872343015}
   wordSounds:
   - {fileID: 8300000, guid: 59799fe01a5b63c4baf6d106bef62a03, type: 3}
   - {fileID: 8300000, guid: ab448a9603421f2418d6d2f6bb3754f9, type: 3}
-  - {fileID: 8300000, guid: 9cda4e4f8c6f7544c9fe1c70797bb9b3, type: 3}
-  - {fileID: 8300000, guid: daa12a6007fcb4241909c12bc5d13a5f, type: 3}
-  - {fileID: 8300000, guid: eb74feb532dffbb48ab0ada60686ba99, type: 3}
-  - {fileID: 8300000, guid: 7347c693288ced64a8267de0e3cd744d, type: 3}
-  - {fileID: 8300000, guid: e980138c8597c90478c5e5564b92c5bd, type: 3}
-  - {fileID: 8300000, guid: d01c73736222a8d4888cd51a04fc8020, type: 3}
-  - {fileID: 8300000, guid: 69312f51b85365e4ab7f409f7353ad84, type: 3}
-  - {fileID: 8300000, guid: 95c78f936f8fdc343910df3ed6654767, type: 3}
-  - {fileID: 8300000, guid: 36c9272f4fefc7444ab69ec3f87e26ba, type: 3}
+  - {fileID: 8300000, guid: 01acaf5c0164b6b4d91c183e7b2f1005, type: 3}
+  - {fileID: 8300000, guid: 316a91e0e795bc044aeaf388128d82e9, type: 3}
+  - {fileID: 8300000, guid: d0c034c1d57af0441a4c206cd6b3a48d, type: 3}
+  - {fileID: 8300000, guid: a17ddc75e4ac3964095e3da19bc04627, type: 3}
+  - {fileID: 8300000, guid: 1e47d4bbcdb067541ae5219b2fada67c, type: 3}
+  - {fileID: 8300000, guid: 09ada681c715bb6419a94618cae50f64, type: 3}
+  - {fileID: 8300000, guid: f579313b0bb9158429c2f189b8fab8d6, type: 3}
+  - {fileID: 8300000, guid: bfe65f8e3848f014c88ae166bd9d0a2a, type: 3}
+  - {fileID: 8300000, guid: 5ae82dc1c68d0a5429ab60119cb50bda, type: 3}
   - {fileID: 8300000, guid: bef97671c858dda4692b72ea25c35d26, type: 3}
   - {fileID: 8300000, guid: ff8bb8ad4156fe94197f783449b5d559, type: 3}
   - {fileID: 8300000, guid: dace9d5c590361d4da5f39c694f8193d, type: 3}
   - {fileID: 8300000, guid: 483ebdf44e1602d418b52d153067c2b4, type: 3}
   - {fileID: 8300000, guid: bc4dc54ea1c8c944ca56c27593ae1fe4, type: 3}
-  - {fileID: 8300000, guid: 612f5d3c833d09c4e9b069e4c871fec1, type: 3}
-  - {fileID: 8300000, guid: 833081788f52c8c4ab8a6f5bff102cbe, type: 3}
-  - {fileID: 8300000, guid: 9159be1f77e79164497207456504dcb6, type: 3}
-  - {fileID: 8300000, guid: 4b3e66a256b391947ad48792e7b7182a, type: 3}
-  - {fileID: 8300000, guid: d7c64f62b1ff2eb47bc6b8fa7093861b, type: 3}
   mistakeSound: {fileID: 8300000, guid: 3d0e01cdf82d5cf419567ffcc7f32404, type: 3}
   completeSound: {fileID: 8300000, guid: 433de8519ae01af4b84c1b24ab1cb8fe, type: 3}
   onWrong:
@@ -25723,7 +25712,7 @@ MonoBehaviour:
   tomatoAnimator: {fileID: 1542725888}
   nextScene: niveau3
   autoStart: 1
-  audioOnly: 0001
+  audioOnly: 0001010101010001010101
 --- !u!4 &872343014
 Transform:
   m_ObjectHideFlags: 0
