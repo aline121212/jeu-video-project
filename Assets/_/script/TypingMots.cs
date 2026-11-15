@@ -23,6 +23,7 @@ public class TypingWord : MonoBehaviour
     public Animator tomatoAnimator;
     int wordsRight, tomatoes;
 
+
     int index;
     string current;
     string input = "";  
@@ -84,8 +85,11 @@ public class TypingWord : MonoBehaviour
             ShowScore();
 
             input += lower;
+
+
             Refresh();
 
+            
 
             if (input == current)
             {
