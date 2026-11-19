@@ -3,8 +3,13 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-public class TypingWord2 : MonoBehaviour
+public class TypingWord3 : MonoBehaviour
 {
+    public Light sun;
+    public float lightSpeed = 0.5f;
+    public Color colorA = new Color(0.2f, 0.2f, 0.6f);
+    public Color colorB = new Color(0.8f, 0.3f, 0.5f);
+
     public TMP_Text label;
     public float startDelay = 1f;
     public string[] words = { "fantôme", "cauchemar", "labyrinthe" };
@@ -20,7 +25,7 @@ public class TypingWord2 : MonoBehaviour
     public Animator tomatoAnimator;
     public string nextScene = "niveau3";
     public bool autoStart = true;
-    public bool[] audioOnly; 
+    public bool[] audioOnly;
     bool hidden;
 
     int score, wordsRight, tomatoes, index;
@@ -51,6 +56,14 @@ public class TypingWord2 : MonoBehaviour
 
     void Update()
     {
+        float t = (Mathf.Sin(Time.time * lightSpeed) + 1f) / 2f;
+        RenderSettings.ambientLight = Color.Lerp(colorA, colorB, t);
+        if (sun != null)
+        {
+            sun.color = Color.Lerp(colorA, colorB, t);
+            sun.intensity = Mathf.Lerp(0.1f, 0.5f, t);
+        }
+
         if (current == null) return;
 
         foreach (char c in Input.inputString)
