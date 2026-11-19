@@ -1148,7 +1148,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -30546,7 +30546,7 @@ MonoBehaviour:
   colorA: {r: 0.2, g: 0.2, b: 0.6, a: 1}
   colorB: {r: 0.8, g: 0.3, b: 0.5, a: 1}
   label: {fileID: 1535303182}
-  startDelay: 1
+  startDelay: 0.76
   words:
   - pneu
   - gnou
@@ -30657,6 +30657,7 @@ MonoBehaviour:
   tomatoText: {fileID: 1542725886}
   tomatoAnimator: {fileID: 1542725888}
   boom: {fileID: 24946216}
+  boomDelay: 0.3
   nextScene: defaite
   autoStart: 1
   audioOnly: 0101010101010101010101010101010101
