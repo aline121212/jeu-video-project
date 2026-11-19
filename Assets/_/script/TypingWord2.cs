@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-public class TypingWord3 : MonoBehaviour
+public class TypingWord2 : MonoBehaviour
 {
     public Light sun;
     public float lightSpeed = 0.5f;
@@ -23,6 +23,8 @@ public class TypingWord3 : MonoBehaviour
     public Animator counterAnimator;
     public TMP_Text tomatoText;
     public Animator tomatoAnimator;
+    public ParticleSystem boom;
+    public float boomDelay = 0.3f;
     public string nextScene = "niveau3";
     public bool autoStart = true;
     public bool[] audioOnly;
@@ -115,6 +117,7 @@ public class TypingWord3 : MonoBehaviour
                 }
 
                 onRight.Invoke();
+                Invoke(nameof(PlayBoom), boomDelay);
                 if (speaker != null && completeSound != null)
                     speaker.PlayOneShot(completeSound);
 
@@ -135,9 +138,11 @@ public class TypingWord3 : MonoBehaviour
     {
         if (index >= words.Length)
         {
-            if (!string.IsNullOrEmpty(nextScene)) SceneManager.LoadScene(nextScene);
+            Invoke(nameof(LoadNext), 1.5f);
             return;
         }
+        CancelInvoke(nameof(PlayBoom));
+        if (boom != null) boom.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
 
         int i = index;
         current = words[i].Trim().ToLower();
@@ -149,6 +154,18 @@ public class TypingWord3 : MonoBehaviour
 
         if (speaker != null && currentClip != null)
             speaker.PlayOneShot(currentClip);
+
+       
+    }
+
+    void LoadNext()
+    {
+        if (!string.IsNullOrEmpty(nextScene)) SceneManager.LoadScene(nextScene);
+    }
+
+    void PlayBoom()
+    {
+        if (boom != null) boom.Play();
     }
 
     void Refresh()
