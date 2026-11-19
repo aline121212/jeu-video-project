@@ -384,7 +384,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 7c6fb70bccbd1ad4da36b999f391a727, type: 3}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -392,7 +392,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 1.37
 --- !u!222 &38343782
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1493,7 +1493,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 7c6fb70bccbd1ad4da36b999f391a727, type: 3}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1501,7 +1501,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 1.09
 --- !u!222 &198899859
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8893,16 +8893,6 @@ MonoBehaviour:
   - silhouette
   - hurlement
   - conscrit
-  - "instantan\xE9"
-  - clignotant
-  - automne
-  - exigence
-  - hurlement
-  - sculpture
-  - "rhinoc\xE9ros"
-  - requin
-  - accommoder
-  - pamplemousse
   speaker: {fileID: 872343015}
   wordSounds:
   - {fileID: 8300000, guid: 93b57e138a30f5545992ed64e6335406, type: 3}
@@ -8916,16 +8906,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 69312f51b85365e4ab7f409f7353ad84, type: 3}
   - {fileID: 8300000, guid: e67afbdc9964c374f9288b741a37247e, type: 3}
   - {fileID: 8300000, guid: 36c9272f4fefc7444ab69ec3f87e26ba, type: 3}
-  - {fileID: 8300000, guid: bef97671c858dda4692b72ea25c35d26, type: 3}
-  - {fileID: 8300000, guid: ff8bb8ad4156fe94197f783449b5d559, type: 3}
-  - {fileID: 8300000, guid: 7bdb8d3cd78f0764f8f1e34580e61e25, type: 3}
-  - {fileID: 8300000, guid: 109f946ee57d33847bfe4801574fd8ce, type: 3}
-  - {fileID: 8300000, guid: e67afbdc9964c374f9288b741a37247e, type: 3}
-  - {fileID: 8300000, guid: 612f5d3c833d09c4e9b069e4c871fec1, type: 3}
-  - {fileID: 8300000, guid: 833081788f52c8c4ab8a6f5bff102cbe, type: 3}
-  - {fileID: 8300000, guid: a53c326fdf8571e46a57057ddd227d15, type: 3}
-  - {fileID: 8300000, guid: cf56fb232acf1cf4284ea8f52a785119, type: 3}
-  - {fileID: 8300000, guid: 759b0cc94eb555846929d4d9f3320990, type: 3}
   mistakeSound: {fileID: 8300000, guid: 3d0e01cdf82d5cf419567ffcc7f32404, type: 3}
   completeSound: {fileID: 8300000, guid: 433de8519ae01af4b84c1b24ab1cb8fe, type: 3}
   nextScene: niveau2
@@ -12385,8 +12365,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: dac56b01917265a4b89c70d696998e0d, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 7c6fb70bccbd1ad4da36b999f391a727, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -12394,7 +12374,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.54
 --- !u!222 &1152224979
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13318,8 +13298,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 200
-  m_fontSizeBase: 200
+  m_fontSize: 260
+  m_fontSizeBase: 260
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -14984,7 +14964,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 41.000183, y: -45}
+  m_AnchoredPosition: {x: 4.9000244, y: -5}
   m_SizeDelta: {x: 154, y: 90}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1547817619
@@ -15064,7 +15044,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 7c6fb70bccbd1ad4da36b999f391a727, type: 3}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
