@@ -30658,7 +30658,7 @@ MonoBehaviour:
   tomatoAnimator: {fileID: 1542725888}
   boom: {fileID: 24946216}
   boomDelay: 0.3
-  nextScene: defaite
+  nextScene: victoir
   autoStart: 1
   audioOnly: 0101010101010101010101010101010101
 --- !u!4 &872343014
