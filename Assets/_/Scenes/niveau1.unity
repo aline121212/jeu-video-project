@@ -8930,7 +8930,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &764853550
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8947,7 +8947,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 83.058, y: -57.805}
+  m_AnchoredPosition: {x: 133.05798, y: -89.80499}
   m_SizeDelta: {x: 130, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &764853551
@@ -8958,7 +8958,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764853549}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
@@ -9491,6 +9491,9 @@ MonoBehaviour:
   counterAnimator: {fileID: 2113681403}
   tomatoText: {fileID: 1490399181}
   tomatoAnimator: {fileID: 1490399180}
+  livesText: {fileID: 1732324708}
+  defeatScene: defaite
+  startLives: 3
 --- !u!4 &872343014
 Transform:
   m_ObjectHideFlags: 0
@@ -12408,7 +12411,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1047391508
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12425,7 +12428,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 94, y: -340}
+  m_AnchoredPosition: {x: 128, y: -248}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1047391509
@@ -13964,7 +13967,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1344643122
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14958,7 +14961,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1490399179
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14975,7 +14978,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 138.731, y: -55.02997}
+  m_AnchoredPosition: {x: 188.73096, y: -94}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1490399180
@@ -16197,12 +16200,12 @@ GameObject:
   - component: {fileID: 1732324709}
   - component: {fileID: 1732324708}
   m_Layer: 5
-  m_Name: LivesText
+  m_Name: Vies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1732324707
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16219,7 +16222,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 97.71008, y: -277.09995}
+  m_AnchoredPosition: {x: 107, y: -266}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1732324708
@@ -16269,8 +16272,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 50.9
+  m_fontSizeBase: 50.9
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -19613,7 +19616,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2113681402
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19630,7 +19633,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -72.2, y: -97.1}
+  m_AnchoredPosition: {x: -121, y: -97.099976}
   m_SizeDelta: {x: 161.5, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &2113681403
@@ -19704,8 +19707,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 133.2
+  m_fontSizeBase: 133.2
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

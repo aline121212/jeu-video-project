@@ -22,6 +22,10 @@ public class TypingWord : MonoBehaviour
     public TMP_Text tomatoText;
     public Animator tomatoAnimator;
     int wordsRight, tomatoes;
+    public TMP_Text livesText;
+    public string defeatScene = "defaite";
+    public int startLives = 3;
+    int lives;
 
 
     int index;
@@ -33,6 +37,8 @@ public class TypingWord : MonoBehaviour
     {
         label.text = "";
         if (counterText != null) counterText.text = "0";
+        lives = startLives;
+        ShowLives();
         if (autoStart) StartGame();
     }
 
@@ -70,19 +76,22 @@ public class TypingWord : MonoBehaviour
                 if (speaker != null && mistakeSound != null)
                     speaker.PlayOneShot(mistakeSound);
                 onWrong.Invoke();
-                score--;
+                
 
                 wordsRight = 0;
                 tomatoes = 0;
                 if (tomatoText != null) tomatoText.text = "0";
                 if (tomatoAnimator != null) tomatoAnimator.SetTrigger("pop");
+                lives--;
+                ShowLives();
+                if (lives <= 0)
+                {
+                    SceneManager.LoadScene(defeatScene);
+                    return;
+                }
             }
 
-            else
-            {
-                score++;
-            }
-            ShowScore();
+         
 
             input += lower;
 
@@ -94,6 +103,10 @@ public class TypingWord : MonoBehaviour
             if (input == current)
             {
                 wordsRight++;
+                score++;
+                ShowScore();
+                lives++;
+                ShowLives();
                 if (wordsRight >= 5)
                 {
                     tomatoes++;
@@ -111,6 +124,11 @@ public class TypingWord : MonoBehaviour
             }
         }
 
+    }
+
+    void ShowLives()
+    {
+        if (livesText != null) livesText.text = " " + lives;
     }
 
     void ShowScore()

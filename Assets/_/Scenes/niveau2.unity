@@ -26129,7 +26129,10 @@ MonoBehaviour:
   boomDelay: 0.3
   nextScene: niveau3
   autoStart: 1
-  audioOnly: 0001010101010001010101010101
+  audioOnly: 0101010101010001010101010101
+  livesText: {fileID: 1159327548}
+  defeatScene: defaite
+  startLives: 3
 --- !u!4 &872343014
 Transform:
   m_ObjectHideFlags: 0
@@ -40751,7 +40754,7 @@ GameObject:
   - component: {fileID: 1159327549}
   - component: {fileID: 1159327548}
   m_Layer: 5
-  m_Name: LivesText
+  m_Name: Vies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
