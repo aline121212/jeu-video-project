@@ -26,6 +26,9 @@ public class TypingWord : MonoBehaviour
     public string defeatScene = "defaite";
     public int startLives = 3;
     int lives;
+    public float streakDuration = 1.5f;
+    public float fadeSpeed = 4f;
+    float streakTarget;
 
 
     int index;
@@ -37,9 +40,11 @@ public class TypingWord : MonoBehaviour
     {
         label.text = "";
         if (counterText != null) counterText.text = "0";
+        if (tomatoText != null) tomatoText.text = "";
         lives = startLives;
         ShowLives();
         if (autoStart) StartGame();
+        if (tomatoText != null) tomatoText.alpha = 0f;
     }
 
     public void StartGame()
@@ -51,6 +56,8 @@ public class TypingWord : MonoBehaviour
 
     void Update()
     {
+        if (tomatoText != null)
+            tomatoText.alpha = Mathf.MoveTowards(tomatoText.alpha, streakTarget, fadeSpeed * Time.deltaTime);
         if (current == null) return;
 
         foreach (char c in Input.inputString)
@@ -76,12 +83,10 @@ public class TypingWord : MonoBehaviour
                 if (speaker != null && mistakeSound != null)
                     speaker.PlayOneShot(mistakeSound);
                 onWrong.Invoke();
-                
+
 
                 wordsRight = 0;
-                tomatoes = 0;
-                if (tomatoText != null) tomatoText.text = "0";
-                if (tomatoAnimator != null) tomatoAnimator.SetTrigger("pop");
+                ShowStreak();
                 lives--;
                 ShowLives();
                 if (lives <= 0)
@@ -107,12 +112,7 @@ public class TypingWord : MonoBehaviour
                 ShowScore();
                 lives++;
                 ShowLives();
-                if (wordsRight >= 5)
-                {
-                    tomatoes++;
-                    if (tomatoText != null) tomatoText.text = tomatoes.ToString();
-                    if (tomatoAnimator != null) tomatoAnimator.SetTrigger("pop");
-                }
+                ShowStreak();
 
                 onRight.Invoke();
                 if (speaker != null && completeSound != null)
@@ -131,11 +131,36 @@ public class TypingWord : MonoBehaviour
         if (livesText != null) livesText.text = " " + lives;
     }
 
+    void ShowStreak()
+    {
+        if (tomatoText == null) return;
+
+        CancelInvoke(nameof(HideStreak));
+
+        if (wordsRight >= 2)
+        {
+            tomatoText.text = "x" + wordsRight + " streak";
+            tomatoText.alpha = 0f;
+            streakTarget = 1f;
+            if (tomatoAnimator != null) tomatoAnimator.SetTrigger("pop");
+            Invoke(nameof(HideStreak), streakDuration);
+        }
+        else
+        {
+            streakTarget = 0f;
+        }
+    }
+
+    void HideStreak()
+    {
+        streakTarget = 0f;
+    }
     void ShowScore()
     {
         if (counterText != null) counterText.text = score.ToString();
         if (counterAnimator != null) counterAnimator.SetTrigger("pop");
     }
+
 
     void NextWord()
     {
