@@ -164,7 +164,7 @@ public class TypingWord2 : MonoBehaviour
 
         if (wordsRight >= 2)
         {
-            tomatoText.text = "x" + wordsRight + " streak";
+            tomatoText.text = "x" + wordsRight + " combo";
             tomatoText.alpha = 0f;
             streakTarget = 1f;
             if (tomatoAnimator != null) tomatoAnimator.SetTrigger("pop");
