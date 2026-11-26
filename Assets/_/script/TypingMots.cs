@@ -29,6 +29,8 @@ public class TypingWord : MonoBehaviour
     public float streakDuration = 1.5f;
     public float fadeSpeed = 4f;
     float streakTarget;
+    public ParticleSystem boom;
+    public float boomDelay = 0.3f;
 
 
     int index;
@@ -115,6 +117,7 @@ public class TypingWord : MonoBehaviour
                 ShowStreak();
 
                 onRight.Invoke();
+                Invoke(nameof(PlayBoom), boomDelay);
                 if (speaker != null && completeSound != null)
                     speaker.PlayOneShot(completeSound);
 
@@ -153,7 +156,12 @@ public class TypingWord : MonoBehaviour
 
     void HideStreak()
     {
+
         streakTarget = 0f;
+    }
+    void PlayBoom()
+    {
+        if (boom != null) boom.Play();
     }
     void ShowScore()
     {
@@ -169,6 +177,9 @@ public class TypingWord : MonoBehaviour
             if (!string.IsNullOrEmpty(nextScene)) SceneManager.LoadScene(nextScene);
             return;
         }
+        CancelInvoke(nameof(PlayBoom));
+        if (boom != null) boom.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+
         int i = index;
         current = words[i].Trim().ToLower();
         index++;

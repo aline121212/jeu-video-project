@@ -192,7 +192,7 @@ public class TypingWord2 : MonoBehaviour
             return;
         }
         CancelInvoke(nameof(PlayBoom));
-        if (boom != null) boom.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        if (boom != null) boom.Stop(true, ParticleSystemStopBehavior.StopEmitting);
 
         int i = index;
         current = words[i].Trim().ToLower();
