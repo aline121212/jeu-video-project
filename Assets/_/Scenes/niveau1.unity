@@ -21856,7 +21856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a71dfa348488a64aa69e47a3b7554ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CountdownTimer
-  duration: 210
+  duration: 35
   startOnLoad: 1
   warningThreshold: 10
   text: {fileID: 1344643123}
