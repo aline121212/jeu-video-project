@@ -38,6 +38,9 @@ public class TypingWord2 : MonoBehaviour
     public float fadeSpeed = 4f;
     public UnityEngine.UI.Image streakIcon;
     float streakTarget;
+    public UnityEvent onLevelComplete;
+    public float endDelay = 3f;
+    bool ended;
 
     int score, wordsRight, index;
     string current;
@@ -188,7 +191,12 @@ public class TypingWord2 : MonoBehaviour
     {
         if (index >= words.Length)
         {
-            Invoke(nameof(LoadNext), 1.5f);
+            if (!ended)
+            {
+                ended = true;
+                onLevelComplete.Invoke();
+                Invoke(nameof(LoadNext), endDelay);
+            }
             return;
         }
         CancelInvoke(nameof(PlayBoom));
